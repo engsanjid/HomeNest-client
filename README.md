@@ -1,16 +1,56 @@
-# React + Vite
+# HomeNest
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+**Live Demo:** []()
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## About HomeNest
 
-## React Compiler
+HomeNest is a real estate listing platform where property owners can post their properties for rent or sale, and users can easily browse, search, and view property details.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+---
 
-## Expanding the ESLint configuration
+## Features
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+* 🏠 Post and manage your own property listings (Add, Update, Delete)
+* 🔍 Search and filter properties by name, category, and price
+* 💬 Rate and review properties with star ratings
+* 🔐 Secure login and registration using Email & Google Authentication
+* 🌗 Light and dark mode for better user experience
+* 📱 Fully responsive layout for all devices (mobile, tablet, desktop)
+
+---
+
+## Tech Stack
+
+* React
+* Firebase Authentication
+* Node.js & Express (server)
+* MongoDB (database)
+* Tailwind CSS
+
+---
+
+## Live Links
+
+* **Client:** [](https://github.com/engsanjid/HomeNest-client.git)
+* **Server:** []()
+
+---
+
+## Setup Instructions
+
+1. Clone the repository https://github.com/engsanjid/HomeNest-client.git
+2. Run `npm install`
+3. Create `.env` file and add Firebase and server URLs
+4. Run `npm run dev`
+
+---
+
+## Author
+
+**Your Name** Md Sanjid Islam
+[Your Email](mdsanjidi36@gmail.com)
+
+---
+
