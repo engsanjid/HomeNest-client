@@ -34,6 +34,7 @@ HomeNest is a real estate listing platform where property owners can post their 
 ## Live Links
 
 * **Client:** [](https://github.com/engsanjid/HomeNest-client.git)
+
 * **Server:** []()
 
 ---
@@ -49,8 +50,9 @@ HomeNest is a real estate listing platform where property owners can post their 
 
 ## Author
 
-**Your Name** Md Sanjid Islam
-[Your Email](mdsanjidi36@gmail.com)
+**Name** Md Sanjid Islam
+
+**Email**mdsanjidi36@gmail.com
 
 ---
 
