@@ -1,5 +1,5 @@
 import { createBrowserRouter } from "react-router-dom";
-import Root from "../root/Root";
+
 import Home from "../component/Home/Home";
 import AllProperties from "../page/AllProperties/AllProperties";
 import AddProperty from "../page/AddProperty/AddProperties";
@@ -8,11 +8,12 @@ import MyRatings from "../page/MyRatings/MyRatings";
 import LoginPage from "../Contexts/AuthContext/Login";
 import RegisterPage from "../Contexts/AuthContext/Register";
 import ErrorPage from "../error/error";
+import Root from "../root/root";
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <Root />,
+   Component:Root,
     errorElement: <ErrorPage />,
     children: [
       { path: "/", element: <Home /> },
