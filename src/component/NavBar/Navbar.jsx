@@ -19,33 +19,33 @@ export default function Navbar() {
     navigate("/", { replace: true });
   };
 
-  const goProtected = (path) => {
-    if (!user) {
-      navigate("/login", { state: { from: path || location.pathname } });
-      return;
-    }
-    navigate(path);
-  };
 
-  // Nav link style helper
+  const handleProtectedNav = (path) => {
+  if (!user) {
+    
+    navigate("/login", { state: { from: path || location.pathname } });
+  } else {
+    navigate(path);
+  }
+};
+
+
   const navStyle = ({ isActive }) =>
-    `transition-colors duration-200 px-3 py-1 rounded-md ${
+    `transition duration-200 px-3 py-1 rounded-md ${
       isActive
         ? "text-primary font-semibold border-b-2 border-primary"
         : "hover:text-primary"
     }`;
 
   return (
-    <header className="w-full bg-base-100 shadow-sm sticky top-0 z-50">
-      <div className="navbar max-w-7xl mx-auto px-4 md:px-6 lg:px-8 flex justify-between items-center">
-        {/* Brand */}
-        <div className="flex items-center gap-2">
-          <Link to="/" className="text-2xl font-extrabold tracking-tight text-primary">
-            HomeNest
-          </Link>
-        </div>
+    <header className="w-full bg-base-100 shadow-md sticky top-0 z-50">
+      <div className="navbar max-w-7xl mx-auto px-4 md:px-6 flex justify-between items-center">
+  
+        <Link to="/" className="text-2xl font-extrabold text-primary">
+          HomeNest
+        </Link>
 
-        {/* Desktop Menu */}
+     
         <nav className="hidden lg:flex items-center gap-6">
           <NavLink to="/" className={navStyle}>
             Home
@@ -53,22 +53,43 @@ export default function Navbar() {
           <NavLink to="/all-properties" className={navStyle}>
             All Properties
           </NavLink>
+          <NavLink
+  to="/add-property"
+  className={navStyle}
+  onClick={(e) => {
+    e.preventDefault(); 
+    handleProtectedNav("/add-property");
+  }}
+>
+  Add Properties
+</NavLink>
 
-          {/* Protected routes */}
-          <button onClick={() => goProtected("/add-property")} className="hover:text-primary transition-colors">
-            Add Properties
-          </button>
-          <button onClick={() => goProtected("/my-properties")} className="hover:text-primary transition-colors">
-            My Properties
-          </button>
-          <button onClick={() => goProtected("/my-ratings")} className="hover:text-primary transition-colors">
-            My Ratings
-          </button>
+<NavLink
+  to="/my-properties"
+  className={navStyle}
+  onClick={(e) => {
+    e.preventDefault();
+    handleProtectedNav("/my-properties");
+  }}
+>
+  My Properties
+</NavLink>
+
+<NavLink
+  to="/my-ratings"
+  className={navStyle}
+  onClick={(e) => {
+    e.preventDefault();
+    handleProtectedNav("/my-ratings");
+  }}
+>
+  My Ratings
+</NavLink>
+
+         
         </nav>
 
-        {/* Right side */}
         <div className="flex items-center gap-3">
-          {/* If logged in */}
           {user ? (
             <div className="dropdown dropdown-end">
               <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
@@ -86,11 +107,11 @@ export default function Navbar() {
                 <li>
                   <div className="px-2 py-1 border-b mb-1">
                     <p className="font-semibold">{user.displayName || "User"}</p>
-                    <p className="text-xs opacity-70 break-words">{user.email}</p>
+                    <p className="text-xs opacity-70">{user.email}</p>
                   </div>
                 </li>
                 <li>
-                  <button onClick={() => goProtected("/my-properties")}>My Properties</button>
+                  <NavLink to="/my-properties">My Properties</NavLink>
                 </li>
                 <li>
                   <button onClick={handleLogout} className="text-error">
@@ -100,7 +121,6 @@ export default function Navbar() {
               </ul>
             </div>
           ) : (
-            // If not logged in
             <div className="hidden lg:flex gap-2">
               <Link className="btn btn-outline btn-sm" to="/login">
                 Login
@@ -111,7 +131,7 @@ export default function Navbar() {
             </div>
           )}
 
-          {/* Mobile Dropdown */}
+      
           <div className="dropdown dropdown-end lg:hidden">
             <label tabIndex={0} className="btn btn-ghost">
               <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -124,19 +144,17 @@ export default function Navbar() {
             >
               <li><Link to="/">Home</Link></li>
               <li><Link to="/all-properties">All Properties</Link></li>
-              <li><button onClick={() => goProtected("/add-property")}>Add Properties</button></li>
-              <li><button onClick={() => goProtected("/my-properties")}>My Properties</button></li>
-              <li><button onClick={() => goProtected("/my-ratings")}>My Ratings</button></li>
-
+              <li><Link to="/add-property" onClick={() => handleProtectedNav("/add-property")} >Add Properties</Link></li>
+              <li><Link to="/my-properties" onClick={() => handleProtectedNav("/my-properties")}>My Properties</Link></li>
+              <li><Link to="/my-ratings" onClick={() => handleProtectedNav("/my-ratings")}>My Ratings</Link></li>
+              
               {!user ? (
                 <>
                   <li><Link to="/login">Login</Link></li>
                   <li><Link to="/register">Signup</Link></li>
                 </>
               ) : (
-                <>
-                  <li><button onClick={handleLogout}>Logout</button></li>
-                </>
+                <li><button onClick={handleLogout}>Logout</button></li>
               )}
             </ul>
           </div>

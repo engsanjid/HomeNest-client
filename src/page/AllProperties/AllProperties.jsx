@@ -1,6 +1,6 @@
 import React from 'react';
 
-const ThemeContext = () => {
+const AllProperties = () => {
     return (
         <div>
             
@@ -8,4 +8,4 @@ const ThemeContext = () => {
     );
 };
 
-export default ThemeContext;
+export default AllProperties;
