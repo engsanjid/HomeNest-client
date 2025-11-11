@@ -1,0 +1,202 @@
+[
+  {
+    "propertyName": "Luxury Villa in Dhaka",
+    "category": "Sale",
+    "price": 12500000,
+    "location": "Gulshan, Dhaka",
+    "image": "https://images.unsplash.com/photo-1600585154340-be6161a56a0c",
+    "description": "A modern 5-bedroom villa with garden and swimming pool.",
+    "postedBy": "HomeNest Admin",
+    "createdAt": { "$date": "2025-11-10T08:00:00Z" }
+  },
+  {
+    "propertyName": "Apartment for Rent in Chittagong",
+    "category": "Rent",
+    "price": 30000,
+    "location": "Nasirabad, Chittagong",
+    "image": "https://images.unsplash.com/photo-1572120360610-d971b9d7767c",
+    "description": "2-bedroom apartment with sea view and parking space.",
+    "postedBy": "HomeNest Admin",
+    "createdAt": { "$date": "2025-11-08T08:00:00Z" }
+  },
+  {
+    "propertyName": "Commercial Land in Sylhet",
+    "category": "Commercial",
+    "price": 5000000,
+    "location": "Zindabazar, Sylhet",
+    "image": "https://images.unsplash.com/photo-1599423300746-b62533397364",
+    "description": "Prime location land suitable for commercial use.",
+    "postedBy": "HomeNest Admin",
+    "createdAt": { "$date": "2025-11-07T08:00:00Z" }
+  },
+  {
+    "propertyName": "Cozy Family Apartment",
+    "category": "Rent",
+    "price": 25000,
+    "location": "Uttara, Dhaka",
+    "image": "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2",
+    "description": "3-bedroom apartment with nearby schools and supermarkets.",
+    "postedBy": "HomeNest Admin",
+    "createdAt": { "$date": "2025-11-06T08:00:00Z" }
+  },
+  {
+    "propertyName": "Beachside Resort Land",
+    "category": "Commercial",
+    "price": 9500000,
+    "location": "Cox’s Bazar, Chittagong",
+    "image": "https://images.unsplash.com/photo-1507089947368-19c1da9775ae",
+    "description": "Ideal land plot for developing a resort near the beach.",
+    "postedBy": "HomeNest Admin",
+    "createdAt": { "$date": "2025-11-05T08:00:00Z" }
+  },
+  {
+    "propertyName": "Modern Office Space",
+    "category": "Commercial",
+    "price": 150000,
+    "location": "Motijheel, Dhaka",
+    "image": "https://i.ibb.co.com/99hQcBBV/office-interior-design.webp",
+    "description": "Fully furnished 2000 sq ft office space with generator backup.",
+    "postedBy": "HomeNest Admin",
+    "createdAt": { "$date": "2025-11-04T08:00:00Z" }
+  },
+  {
+    "propertyName": "Suburban Duplex House",
+    "category": "Sale",
+    "price": 8200000,
+    "location": "Mirpur, Dhaka",
+    "image": "https://i.ibb.co.com/Xx4pyY5z/w800x533.jpg",
+    "description": "4-bedroom duplex with rooftop and garage.",
+    "postedBy": "HomeNest Admin",
+    "createdAt": { "$date": "2025-11-03T08:00:00Z" }
+  },
+  {
+    "propertyName": "Penthouse with City View",
+    "category": "Rent",
+    "price": 70000,
+    "location": "Banani, Dhaka",
+    "image": "https://images.unsplash.com/photo-1596394516093-501ba68a0ba6",
+    "description": "Luxurious penthouse with terrace garden and modern amenities.",
+    "postedBy": "HomeNest Admin",
+    "createdAt": { "$date": "2025-11-02T08:00:00Z" }
+  },
+  {
+    "propertyName": "Farmhouse with Lake View",
+    "category": "Sale",
+    "price": 10500000,
+    "location": "Savar, Dhaka",
+    "image": "https://images.unsplash.com/photo-1570129477492-45c003edd2be",
+    "description": "Spacious farmhouse surrounded by greenery and lakeside views.",
+    "postedBy": "HomeNest Admin",
+    "createdAt": { "$date": "2025-11-01T08:00:00Z" }
+  },
+  {
+    "propertyName": "Studio Apartment",
+    "category": "Rent",
+    "price": 18000,
+    "location": "Dhanmondi, Dhaka",
+    "image": "https://i.ibb.co.com/xtsptzTw/Apartment-Therapy-Gaby-June-20224874.webp",
+    "description": "Compact studio perfect for singles or students.",
+    "postedBy": "HomeNest Admin",
+    "createdAt": { "$date": "2025-10-31T08:00:00Z" }
+  },
+  {
+    "propertyName": "Commercial Building",
+    "category": "Commercial",
+    "price": 25000000,
+    "location": "Agrabad, Chittagong",
+    "image": "https://i.ibb.co.com/97vTSmk/pexels-photo-269077.jpg",
+    "description": "5-story commercial building in prime business district.",
+    "postedBy": "HomeNest Admin",
+    "createdAt": { "$date": "2025-10-30T08:00:00Z" }
+  },
+  {
+    "propertyName": "Countryside Cottage",
+    "category": "Sale",
+    "price": 4600000,
+    "location": "Srimangal, Sylhet",
+    "image": "https://images.unsplash.com/photo-1505691938895-1758d7feb511",
+    "description": "Beautiful wooden cottage surrounded by tea gardens.",
+    "postedBy": "HomeNest Admin",
+    "createdAt": { "$date": "2025-10-29T08:00:00Z" }
+  },
+  {
+    "propertyName": "Office for Rent",
+    "category": "Commercial",
+    "price": 85000,
+    "location": "Kawran Bazar, Dhaka",
+    "image": "https://images.unsplash.com/photo-1522202176988-66273c2fd55f",
+    "description": "Spacious open-plan office suitable for startups.",
+    "postedBy": "HomeNest Admin",
+    "createdAt": { "$date": "2025-10-28T08:00:00Z" }
+  },
+  {
+    "propertyName": "Luxury Apartment in Sylhet",
+    "category": "Sale",
+    "price": 9800000,
+    "location": "Amberkhana, Sylhet",
+    "image": "https://images.unsplash.com/photo-1600047509807-ba8f99d2cdde",
+    "description": "Elegant 4-bedroom apartment with private balcony.",
+    "postedBy": "HomeNest Admin",
+    "createdAt": { "$date": "2025-10-27T08:00:00Z" }
+  },
+  {
+    "propertyName": "Warehouse Facility",
+    "category": "Commercial",
+    "price": 6500000,
+    "location": "Gazipur, Dhaka",
+    "image": "https://i.ibb.co.com/MyNsr4ys/multipurpose-warehouse-mezzanine.webp",
+    "description": "10,000 sq ft warehouse with loading dock and security.",
+    "postedBy": "HomeNest Admin",
+    "createdAt": { "$date": "2025-10-26T08:00:00Z" }
+  },
+  {
+    "propertyName": "Luxury Flat for Rent",
+    "category": "Rent",
+    "price": 55000,
+    "location": "Bashundhara, Dhaka",
+    "image": "https://i.ibb.co.com/pBJq6zQP/67124ff19df0deae17976392-670cf423772ad7e40417a1e2-1-20-min.webp",
+    "description": "High-end flat with modern furnishings and security.",
+    "postedBy": "HomeNest Admin",
+    "createdAt": { "$date": "2025-10-25T08:00:00Z" }
+  },
+  {
+    "propertyName": "Downtown Retail Space",
+    "category": "Commercial",
+    "price": 120000,
+    "location": "New Market, Dhaka",
+    "image": "https://i.ibb.co.com/S7xbdQCy/76bfe8f3-89d5-43d9-a45e-6181f0c3a839-cheap-retail-space.jpg",
+    "description": "Retail unit in one of Dhaka’s busiest shopping areas.",
+    "postedBy": "HomeNest Admin",
+    "createdAt": { "$date": "2025-10-24T08:00:00Z" }
+  },
+  {
+    "propertyName": "Affordable Apartment",
+    "category": "Sale",
+    "price": 3500000,
+    "location": "Rangpur City, Rangpur",
+    "image": "https://i.ibb.co.com/gLdyrB8f/jamboree-rockwood-apartments-affordable-homes-families-formerly-homeless-anaheim-leed-gold-980x.jpg",
+    "description": "2-bedroom apartment with great connectivity and facilities.",
+    "postedBy": "HomeNest Admin",
+    "createdAt": { "$date": "2025-10-23T08:00:00Z" }
+  },
+  {
+    "propertyName": "Eco-Friendly House",
+    "category": "Sale",
+    "price": 7200000,
+    "location": "Baridhara, Dhaka",
+    "image": "https://i.ibb.co.com/xSnBcwLs/Remodel-Your-Home-Ecofriendly-Ideas-1.png",
+    "description": "Energy-efficient home with solar panels and rainwater harvesting.",
+    "postedBy": "HomeNest Admin",
+    "createdAt": { "$date": "2025-10-22T08:00:00Z" }
+  },
+  {
+    "propertyName": "Seaside Apartment",
+    "category": "Rent",
+    "price": 40000,
+    "location": "Patenga, Chittagong",
+    "image": "https://images.unsplash.com/photo-1580587771525-78b9dba3b914",
+    "description": "2-bedroom apartment with balcony overlooking the sea.",
+    "postedBy": "HomeNest Admin",
+    "createdAt": { "$date": "2025-10-21T08:00:00Z" }
+  }
+]

@@ -17,7 +17,10 @@ const router = createBrowserRouter([
     errorElement: <ErrorPage />,
     children: [
       { path: "/", element: <Home /> },
-      { path: "/all-properties", element: <AllProperties /> },
+      { path: "/all-properties",
+        loader:()=>fetch('http://localhost:5000/all-properties'),
+         element: <AllProperties /> 
+        },
       { path: "/add-property", element: <AddProperty /> },
       { path: "/my-properties", element: <MyProperties /> },
       { path: "/my-ratings", element: <MyRatings /> },
