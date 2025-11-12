@@ -46,52 +46,64 @@ export default function MyProperties() {
     });
   };
 
-  if (loading) return <p className="text-center mt-10">Loading...</p>;
+  if (loading)
+    return (
+      <div className="flex justify-center items-center h-[60vh]">
+        <span className="loading loading-spinner loading-lg text-primary"></span>
+      </div>
+    );
 
   return (
-    <div className="max-w-6xl mx-auto p-6">
-      <h2 className="text-3xl font-bold mb-6 text-center text-primary">
-        My Properties
+    <div className="max-w-7xl mx-auto px-6 py-10">
+      <h2 className="text-4xl font-bold text-center text-primary mb-8">
+         My Properties
       </h2>
 
       {properties.length === 0 ? (
-        <p className="text-center text-gray-500">No properties found.</p>
+        <p className="text-center text-gray-400 text-lg">
+          You haven’t added any properties yet.
+        </p>
       ) : (
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {properties.map((p) => (
             <div
               key={p._id}
-              className="card bg-base-100 shadow-lg border border-gray-200 hover:shadow-xl transition-all"
+              className="bg-base-100 border border-gray-700/30 rounded-2xl overflow-hidden
+                         shadow-md hover:shadow-[0_8px_25px_rgba(138,180,255,0.25)] 
+                         transform transition-all duration-300 ease-in-out hover:-translate-y-2"
             >
-              <figure>
+              <figure className="relative">
                 <img
                   src={p.image || "https://via.placeholder.com/400"}
                   alt={p.propertyName}
-                  className="h-48 w-full object-cover rounded-t-lg"
+                  className="h-56 w-full object-cover transition-transform duration-500 hover:scale-105"
                 />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent"></div>
               </figure>
-              <div className="card-body">
-                <h3 className="font-semibold text-lg ">
+
+              <div className="p-5 text-gray-200">
+                <h3 className="font-semibold text-lg text-primary mb-1">
                   {p.propertyName}
                 </h3>
-                <p className="text-sm text-gray-600">{p.location}</p>
-                <p className="text-sm text-gray-500">Category: {p.category}</p>
-                <p className="font-bold text-primary text-lg">
+                <p className="text-sm text-gray-400">{p.location}</p>
+                <p className="text-sm text-gray-400 mt-1">
+                  Category: <span className="text-gray-300">{p.category}</span>
+                </p>
+                <p className="text-lg font-semibold text-green-400 mt-2">
                   ৳ {p.price?.toLocaleString?.() || p.price}
                 </p>
 
-              
-                <p className="text-xs text-gray-400 mt-1">
-                  Posted:{" "}
+                <p className="text-xs text-gray-500 mt-2">
+                   Posted on:{" "}
                   {p.createdAt
                     ? new Date(p.createdAt).toLocaleDateString()
                     : "N/A"}
                 </p>
 
-                <div className="flex justify-between items-center mt-4">
+                <div className="flex justify-between items-center mt-5">
                   <button
                     onClick={() => handleDelete(p._id)}
-                    className="btn btn-error btn-sm"
+                    className="btn btn-error btn-sm text-white hover:opacity-90"
                   >
                     Delete
                   </button>
@@ -99,7 +111,8 @@ export default function MyProperties() {
                     onClick={() =>
                       (window.location.href = `/update-property/${p._id}`)
                     }
-                    className="btn btn-outline btn-sm"
+                    className="btn btn-outline btn-sm border-primary text-primary 
+                               hover:bg-primary hover:text-white transition-all duration-200"
                   >
                     Update
                   </button>
@@ -107,7 +120,8 @@ export default function MyProperties() {
                     onClick={() =>
                       (window.location.href = `/details/${p._id}`)
                     }
-                    className="btn btn-primary btn-sm"
+                    className="btn btn-outline btn-sm border-primary text-primary 
+                               hover:bg-primary hover:text-white transition-all duration-200"
                   >
                     View
                   </button>
