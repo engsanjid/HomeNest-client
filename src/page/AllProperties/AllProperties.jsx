@@ -46,7 +46,7 @@ export default function AllProperties() {
               </p>
               <div className="card-actions justify-end mt-3">
                 <Link
-                  to={`/property/${p._id}`}
+                  to={`/details/${p._id}`}
                   className="btn btn-outline btn-sm text-primary"
                 >
                   View Details

@@ -9,6 +9,7 @@ import LoginPage from "../Contexts/AuthContext/Login";
 import RegisterPage from "../Contexts/AuthContext/Register";
 import ErrorPage from "../error/error";
 import Root from "../root/root";
+import PropertyDetails from "../page/Property-customise/PropertyDetails";
 
 const router = createBrowserRouter([
   {
@@ -26,6 +27,10 @@ const router = createBrowserRouter([
       { path: "/my-ratings", element: <MyRatings /> },
       { path: "/login", element: <LoginPage /> },
       { path: "/register", element: <RegisterPage /> },
+      { path: "/details/:id",
+        loader:({params})=>fetch(`http://localhost:5000/details/${params.id}`),
+         element: <PropertyDetails></PropertyDetails> 
+        },
     ],
   },
 ]);
