@@ -8,18 +8,31 @@ export default function MyRatings() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    if (!user?.email) return;
-    fetch(`http://localhost:5000/my-reviews/${user.email}`)
-      .then((res) => res.json())
-      .then((data) => {
-        setReviews(data);
-        setLoading(false);
-      })
-      .catch(() => {
-        Swal.fire("Error!", "Failed to load reviews.", "error");
-        setLoading(false);
+  if (!user?.email) return;
+
+  const fetchReviews = async () => {
+    try {
+      const token = await user.getIdToken(); 
+      const res = await fetch(`http://localhost:5000/my-reviews/${user.email}`, {
+        headers: {
+          Authorization: `Bearer ${token}`, 
+        },
       });
-  }, [user?.email]);
+
+      if (!res.ok) throw new Error("Unauthorized");
+      const data = await res.json();
+      setReviews(Array.isArray(data) ? data : []);
+    } catch (error) {
+      console.error(error);
+      Swal.fire("Error!", "Failed to load reviews.", "error");
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  fetchReviews();
+}, [user]);
+
 
   if (loading)
     return (

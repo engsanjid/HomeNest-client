@@ -9,17 +9,32 @@ export default function MyProperties() {
 
   useEffect(() => {
     if (!user?.email) return;
-    fetch(`http://localhost:5000/my-properties/${user.email}`)
-      .then((res) => res.json())
-      .then((data) => {
+
+    const fetchData = async () => {
+      try {
+        const token = await user.getIdToken(); // ✅ Firebase token আনো
+        const res = await fetch(`http://localhost:5000/my-properties/${user.email}`, {
+          headers: {
+            Authorization: `Bearer ${token}`, // ✅ token পাঠানো হচ্ছে
+          },
+        });
+
+        if (!res.ok) throw new Error("Unauthorized");
+        const data = await res.json();
         setProperties(data);
+      } catch (error) {
+        console.error(error);
+        Swal.fire("Error!", "Failed to load your properties.", "error");
+      } finally {
         setLoading(false);
-      })
-      .catch(() => setLoading(false));
+      }
+    };
+
+    fetchData();
   }, [user]);
 
-  const handleDelete = (id) => {
-    Swal.fire({
+  const handleDelete = async (id) => {
+    const result = await Swal.fire({
       title: "Are you sure?",
       text: "You won’t be able to revert this!",
       icon: "warning",
@@ -27,23 +42,29 @@ export default function MyProperties() {
       confirmButtonColor: "#3085d6",
       cancelButtonColor: "#d33",
       confirmButtonText: "Yes, delete it!",
-    }).then((result) => {
-      if (result.isConfirmed) {
-        fetch(`http://localhost:5000/property/${id}`, {
-          method: "DELETE",
-        })
-          .then((res) => res.json())
-          .then((data) => {
-            if (data.success) {
-              Swal.fire("Deleted!", "Property has been removed.", "success");
-              setProperties((prev) => prev.filter((p) => p._id !== id));
-            }
-          })
-          .catch(() =>
-            Swal.fire("Error!", "Failed to delete property.", "error")
-          );
-      }
     });
+
+    if (result.isConfirmed) {
+      try {
+        const token = await user.getIdToken(); // ✅ token আনো
+        const res = await fetch(`http://localhost:5000/property/${id}`, {
+          method: "DELETE",
+          headers: {
+            Authorization: `Bearer ${token}`, // ✅ token পাঠানো হচ্ছে
+          },
+        });
+
+        const data = await res.json();
+        if (data.success) {
+          Swal.fire("Deleted!", "Property has been removed.", "success");
+          setProperties((prev) => prev.filter((p) => p._id !== id));
+        } else {
+          Swal.fire("Error!", "Failed to delete property.", "error");
+        }
+      } catch {
+        Swal.fire("Error!", "Server not responding.", "error");
+      }
+    }
   };
 
   if (loading)
@@ -56,7 +77,7 @@ export default function MyProperties() {
   return (
     <div className="max-w-7xl mx-auto px-6 py-10">
       <h2 className="text-4xl font-bold text-center text-primary mb-8">
-         My Properties
+        My Properties
       </h2>
 
       {properties.length === 0 ? (
@@ -68,9 +89,7 @@ export default function MyProperties() {
           {properties.map((p) => (
             <div
               key={p._id}
-              className="bg-base-100 border border-gray-700/30 rounded-2xl overflow-hidden
-                         shadow-md hover:shadow-[0_8px_25px_rgba(138,180,255,0.25)] 
-                         transform transition-all duration-300 ease-in-out hover:-translate-y-2"
+              className="bg-base-100 border border-gray-700/30 rounded-2xl overflow-hidden shadow-md hover:shadow-[0_8px_25px_rgba(138,180,255,0.25)] transform transition-all duration-300 ease-in-out hover:-translate-y-2"
             >
               <figure className="relative">
                 <img
@@ -93,13 +112,6 @@ export default function MyProperties() {
                   ৳ {p.price?.toLocaleString?.() || p.price}
                 </p>
 
-                <p className="text-xs text-gray-500 mt-2">
-                   Posted on:{" "}
-                  {p.createdAt
-                    ? new Date(p.createdAt).toLocaleDateString()
-                    : "N/A"}
-                </p>
-
                 <div className="flex justify-between items-center mt-5">
                   <button
                     onClick={() => handleDelete(p._id)}
@@ -111,8 +123,7 @@ export default function MyProperties() {
                     onClick={() =>
                       (window.location.href = `/update-property/${p._id}`)
                     }
-                    className="btn btn-outline btn-sm border-primary text-primary 
-                               hover:bg-primary hover:text-white transition-all duration-200"
+                    className="btn btn-outline btn-sm border-primary text-primary hover:bg-primary hover:text-white transition-all duration-200"
                   >
                     Update
                   </button>
@@ -120,8 +131,7 @@ export default function MyProperties() {
                     onClick={() =>
                       (window.location.href = `/details/${p._id}`)
                     }
-                    className="btn btn-outline btn-sm border-primary text-primary 
-                               hover:bg-primary hover:text-white transition-all duration-200"
+                    className="btn btn-outline btn-sm border-primary text-primary hover:bg-primary hover:text-white transition-all duration-200"
                   >
                     View
                   </button>

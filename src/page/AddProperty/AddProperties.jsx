@@ -5,48 +5,52 @@ import Swal from "sweetalert2";
 export default function AddProperty() {
   const { user } = useContext(AuthContext);
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
+  const handleSubmit = async (e) => {
+  e.preventDefault();
+  const form = e.target;
 
-    const form = e.target;
-
-    const newProperty = {
-      propertyName: form.propertyName.value,
-      description: form.description.value,
-      category: form.category.value,
-      price: parseFloat(form.price.value),
-      location: form.location.value,
-      image: form.image.value,
-      userName: user?.displayName || "Anonymous",
-      userEmail: user?.email || "Unknown",
-      postedBy: user?.email || "Guest",
-      createdAt: new Date(),
-    };
-
-   
-    fetch("http://localhost:5000/all-properties", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(newProperty),
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        if (data.success) {
-          Swal.fire({
-            title: "Success!",
-            text: "Property added successfully ....",
-            icon: "success",
-            confirmButtonColor: "#3085d6",
-          });
-          form.reset(); 
-        } else {
-          Swal.fire("Error!", "Something went wrong ", "error");
-        }
-      })
-      .catch(() => {
-        Swal.fire("Error!", "Server not responding ", "error");
-      });
+  const newProperty = {
+    propertyName: form.propertyName.value,
+    description: form.description.value,
+    category: form.category.value,
+    price: parseFloat(form.price.value),
+    location: form.location.value,
+    image: form.image.value,
+    userName: user?.displayName || "Anonymous",
+    userEmail: user?.email || "Unknown",
+    postedBy: user?.email || "Guest",
+    createdAt: new Date(),
   };
+
+  try {
+    const token = await user.getIdToken(); 
+    const res = await fetch("http://localhost:5000/all-properties", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`, 
+      },
+      body: JSON.stringify(newProperty),
+    });
+
+    const data = await res.json();
+
+    if (data.success) {
+      Swal.fire({
+        title: "Success!",
+        text: "Property added successfully!",
+        icon: "success",
+        confirmButtonColor: "#3085d6",
+      });
+      form.reset();
+    } else {
+      Swal.fire("Error!", "Something went wrong!", "error");
+    }
+  } catch (err) {
+    Swal.fire("Error!", "Server not responding.", err);
+  }
+};
+
 
   return (
     <div className="max-w-lg mx-auto p-6 bg-base-200 rounded-xl shadow-lg mt-10">
