@@ -1,5 +1,5 @@
 import { createBrowserRouter } from "react-router-dom";
-
+import PrivateRoute from "../router/PrivateRoute";
 import Home from "../component/Home/Home";
 import AllProperties from "../page/AllProperties/AllProperties";
 import AddProperty from "../page/AddProperty/AddProperties";
@@ -10,7 +10,7 @@ import RegisterPage from "../Contexts/AuthContext/Register";
 import ErrorPage from "../error/error";
 import Root from "../root/root";
 import PropertyDetails from "../page/Property-customise/PropertyDetails";
-
+import UpdateProperty from "../page/Property-customise/UpdateProperty";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -22,7 +22,11 @@ const router = createBrowserRouter([
         loader:()=>fetch('http://localhost:5000/all-properties'),
          element: <AllProperties /> 
         },
-      { path: "/add-property", element: <AddProperty /> },
+      { path: "/add-property", element: (
+    <PrivateRoute>
+      <AddProperty />
+    </PrivateRoute>
+  ), },
       { path: "/my-properties", element: <MyProperties /> },
       { path: "/my-ratings", element: <MyRatings /> },
       { path: "/login", element: <LoginPage /> },
@@ -30,7 +34,17 @@ const router = createBrowserRouter([
       { path: "/details/:id",
         loader:({params})=>fetch(`http://localhost:5000/details/${params.id}`),
          element: <PropertyDetails></PropertyDetails> 
-        },
+     },
+     {
+        path: "/update-property/:id",
+        loader: ({ params }) =>
+          fetch(`http://localhost:5000/details/${params.id}`), 
+        element: (
+          <PrivateRoute>
+            <UpdateProperty />
+          </PrivateRoute>
+        ),
+      }
     ],
   },
 ]);
