@@ -71,6 +71,7 @@ MongoDB (Mongoose)
 CORS
 
 ## Folder Structure
+```
 HomeNest-client/
 │── public/
 │── src/
@@ -85,7 +86,7 @@ HomeNest-client/
 │── .env
 │── package.json
 │── README.md
-
+```
 ## How to Run Locally
 1️⃣ Clone the repository
 git clone https://github.com/engsanjid/HomeNest-client.git
