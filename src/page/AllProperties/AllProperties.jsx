@@ -9,29 +9,42 @@ export default function AllProperties() {
 
   const [debouncedSearch, setDebouncedSearch] = useState("");
 
-  // 🔥 Debounce system (user typing থামলে 0.4s পর API কল হবে)
+  
   useEffect(() => {
     const timer = setTimeout(() => {
       setDebouncedSearch(searchTerm);
-    }, 1000);
+    },1000);
 
     return () => clearTimeout(timer);
   }, [searchTerm]);
 
-  // 🔥 API Fetch using debounced value
-  useEffect(() => {
-    setLoading(true);
 
-    fetch(
-      `http://localhost:5000/all-properties?search=${debouncedSearch}&sort=${sortOption}`
-    )
-      .then((res) => res.json())
-      .then((data) => {
+  useEffect(() => {
+ 
+  if (debouncedSearch === "") {
+    setLoading(true);
+    fetch(`http://localhost:5000/all-properties?sort=${sortOption}`)
+      .then(res => res.json())
+      .then(data => {
         setProperties(data);
         setLoading(false);
       })
       .catch(() => setLoading(false));
-  }, [debouncedSearch, sortOption]);
+    return;
+  }
+
+  setLoading(false);
+
+  fetch(
+    `http://localhost:5000/all-properties?search=${debouncedSearch}&sort=${sortOption}`
+  )
+    .then((res) => res.json())
+    .then((data) => {
+      setProperties(data);
+      setLoading(false);
+    })
+    .catch(() => setLoading(false));
+}, [debouncedSearch, sortOption]);
 
   if (loading)
     return (
@@ -49,10 +62,10 @@ export default function AllProperties() {
         Discover your next home with <span className="text-primary font-semibold">HomeNest</span>
       </p>
 
-      {/* Search + Sort */}
+     
       <div className="flex flex-col md:flex-row justify-between items-center gap-4 mb-8">
 
-        {/* 🔍 Search Input */}
+     
         <input
           type="text"
           placeholder="Search by property name..."
@@ -61,20 +74,20 @@ export default function AllProperties() {
           className="input input-bordered w-full md:w-1/2"
         />
 
-        {/* 🔽 Sort Select */}
+
         <select
           className="select select-bordered w-full md:w-1/4"
           value={sortOption}
           onChange={(e) => setSortOption(e.target.value)}
         >
-          <option value="date_desc">Newest First</option>
-          <option value="date_asc">Oldest First</option>
+          <option value="date_asc">Newest First</option>
+          <option value="date_desc">Oldest First</option>
           <option value="price_asc">Price (Low → High)</option>
           <option value="price_desc">Price (High → Low)</option>
         </select>
       </div>
 
-      {/* Property List */}
+ 
       {properties.length === 0 ? (
         <p className="text-center text-gray-400 mt-10">No properties found.</p>
       ) : (

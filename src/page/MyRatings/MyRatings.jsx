@@ -93,7 +93,7 @@ export default function MyRatings() {
                 </p>
 
                 <p className="text-xs text-gray-500">
-                  📅 Reviewed on:{" "}
+                   Reviewed on:{" "}
                   <span className="text-gray-400">
                     {new Date(r.createdAt).toLocaleDateString("en-US")}
                   </span>

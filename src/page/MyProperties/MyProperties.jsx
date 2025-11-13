@@ -12,10 +12,10 @@ export default function MyProperties() {
 
     const fetchData = async () => {
       try {
-        const token = await user.getIdToken(); // ✅ Firebase token আনো
+        const token = await user.getIdToken();
         const res = await fetch(`http://localhost:5000/my-properties/${user.email}`, {
           headers: {
-            Authorization: `Bearer ${token}`, // ✅ token পাঠানো হচ্ছে
+            Authorization: `Bearer ${token}`, 
           },
         });
 
@@ -46,11 +46,11 @@ export default function MyProperties() {
 
     if (result.isConfirmed) {
       try {
-        const token = await user.getIdToken(); // ✅ token আনো
+        const token = await user.getIdToken(); 
         const res = await fetch(`http://localhost:5000/property/${id}`, {
           method: "DELETE",
           headers: {
-            Authorization: `Bearer ${token}`, // ✅ token পাঠানো হচ্ছে
+            Authorization: `Bearer ${token}`, 
           },
         });
 

@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from "react";
-import { Link, NavLink, useNavigate, useLocation } from "react-router-dom";
+import { Link, NavLink, useNavigate,  } from "react-router-dom";
 import { onAuthStateChanged, signOut } from "firebase/auth";
 import { auth } from "../../firebase/firebase.init";
 
 export default function Navbar() {
   const [user, setUser] = useState(null);
   const navigate = useNavigate();
-  const location = useLocation();
+  
 
   const [theme, setTheme] = useState(localStorage.getItem("theme") || "light");
 
@@ -30,13 +30,7 @@ export default function Navbar() {
     navigate("/", { replace: true });
   };
 
-  const handleProtectedNav = (path) => {
-    if (!user) {
-      navigate("/login", { state: { from: path || location.pathname } });
-    } else {
-      navigate(path);
-    }
-  };
+  
 
   const navStyle = ({ isActive }) =>
     `transition duration-200 px-3 py-1 rounded-md ${
@@ -61,10 +55,7 @@ export default function Navbar() {
           <NavLink
             to="/add-property"
             className={navStyle}
-            onClick={(e) => {
-              e.preventDefault();
-              handleProtectedNav("/add-property");
-            }}
+            
           >
             Add Properties
           </NavLink>
@@ -72,10 +63,7 @@ export default function Navbar() {
           <NavLink
             to="/my-properties"
             className={navStyle}
-            onClick={(e) => {
-              e.preventDefault();
-              handleProtectedNav("/my-properties");
-            }}
+            
           >
             My Properties
           </NavLink>
@@ -83,10 +71,7 @@ export default function Navbar() {
           <NavLink
             to="/my-ratings"
             className={navStyle}
-            onClick={(e) => {
-              e.preventDefault();
-              handleProtectedNav("/my-ratings");
-            }}
+            
           >
             My Ratings
           </NavLink>
@@ -139,9 +124,9 @@ export default function Navbar() {
             <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-56">
               <li><Link to="/">Home</Link></li>
               <li><Link to="/all-properties">All Properties</Link></li>
-              <li><Link onClick={() => handleProtectedNav("/add-property")}>Add Properties</Link></li>
-              <li><Link onClick={() => handleProtectedNav("/my-properties")}>My Properties</Link></li>
-              <li><Link onClick={() => handleProtectedNav("/my-ratings")}>My Ratings</Link></li>
+              <li><Link to={"/add-property"}>Add Properties</Link></li>
+              <li><Link to={"/my-properties"}>My Properties</Link></li>
+              <li><Link to={"/my-ratings"}>My Ratings</Link></li>
 
               {!user ? (
                 <>

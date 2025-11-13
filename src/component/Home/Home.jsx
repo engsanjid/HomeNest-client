@@ -1,13 +1,17 @@
-import React from 'react';
-import Navbar from '../NavBar/Navbar';
+import HeroSlider from "./HeroSlider";
+import FeaturedRealEstate from "./FeaturedRealEstate";
+import WhyChooseUs from "./WhyChooseUs";
+import CustomerTestimonials from "./CustomerTestimonials";
+import HowItWorks from "./HowItWorks";
 
-const Home = () => {
-    return (
-        <div>
-           
-            
-        </div>
-    );
-};
-
-export default Home;
+export default function Home() {
+  return (
+    <div>
+      <HeroSlider />
+      <FeaturedRealEstate />
+      <WhyChooseUs></WhyChooseUs>
+      <CustomerTestimonials></CustomerTestimonials>
+      <HowItWorks></HowItWorks>
+    </div>
+  );
+}
