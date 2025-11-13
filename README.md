@@ -1,58 +1,106 @@
-# HomeNest
+# HomeNest – Real Estate Listing Platform
+## Live Website
 
-**Live Demo:** []()
+https://chipper-nougat-76a1d7.netlify.app/
 
----
+## Client GitHub Repo
+
+https://github.com/engsanjid/HomeNest-client
+
+## Server GitHub Repo
+
+https://github.com/engsanjid/homeNest-server-side
+
+## Live Server API
+
+https://homenest-server-nine.vercel.app/
 
 ## About HomeNest
 
-HomeNest is a real estate listing platform where property owners can post their properties for rent or sale, and users can easily browse, search, and view property details.
+HomeNest is a modern Real Estate Listing Platform that allows users to seamlessly manage property listings.
+Users can:
 
----
+Add their own properties
 
-## Features
+Update existing property information
 
-* 🏠 Post and manage your own property listings (Add, Update, Delete)
-* 🔍 Search and filter properties by name, category, and price
-* 💬 Rate and review properties with star ratings
-* 🔐 Secure login and registration using Email & Google Authentication
-* 🌗 Light and dark mode for better user experience
-* 📱 Fully responsive layout for all devices (mobile, tablet, desktop)
+Manage and delete listings
 
----
+Visitors can explore a wide range of properties using advanced search, filtering, and sorting features.
+HomeNest aims to provide an efficient, secure, and user-friendly experience for anyone looking to browse or manage real estate listings.
+
+## Key Features
+
+🏠 Add, Update & Delete Properties (Private Routes)
+
+🔍 Search & Sort Properties (Backend-based sorting)
+
+🌟 Ratings & Reviews (Star rating system)
+
+🔐 Secure Authentication (Email & Google Login)
+
+🌗 Light/Dark Mode Toggle
+
+📱 Fully Responsive UI (Mobile, Tablet, Desktop)
+
+⚡ Loading Spinner, Toast Alerts, 404 Page
+
+🏙 Featured Properties (Latest 6 via MongoDB sort)
 
 ## Tech Stack
+Frontend
 
-* React
-* Firebase Authentication
-* Node.js & Express (server)
-* MongoDB (database)
-* Tailwind CSS
+React.js
 
----
+React Router DOM
 
-## Live Links
+Firebase Authentication
 
-* **Client:** [](https://github.com/engsanjid/HomeNest-client.git)
+Tailwind CSS
 
-* **Server:** []()
+SweetAlert2 / React Hot Toast
 
----
+Backend
 
-## Setup Instructions
+Node.js
 
-1. Clone the repository https://github.com/engsanjid/HomeNest-client.git
-2. Run `npm install`
-3. Create `.env` file and add Firebase and server URLs
-4. Run `npm run dev`
+Express.js
 
----
+MongoDB (Mongoose)
+
+CORS
+
+## Folder Structure
+HomeNest-client/
+│── public/
+│── src/
+│   ├── component/
+│   ├── page/
+│   ├── provider/
+│   ├── router/
+│   ├── hooks/
+│   ├── firebase/
+│   ├── App.jsx
+│   ├── main.jsx
+│── .env
+│── package.json
+│── README.md
+
+## How to Run Locally
+1️⃣ Clone the repository
+git clone https://github.com/engsanjid/HomeNest-client.git
+
+2️⃣ Install dependencies
+npm install
+
+3️⃣ Create .env file
+VITE_FIREBASE_API_KEY=xxxx
+VITE_API_URL=https://homenest-server-nine.vercel.app/properties
+
+4️⃣ Start the development server
+npm run dev
 
 ## Author
 
-**Name** Md Sanjid Islam
-
-**Email**mdsanjidi36@gmail.com
-
----
-
+Name: Md Sanjid Islam
+Email: mdsanjidi36@gmail.com

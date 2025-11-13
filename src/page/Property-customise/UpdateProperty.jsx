@@ -19,7 +19,7 @@ export default function UpdateProperty() {
       image: form.image.value,
     };
 
-    fetch(`http://localhost:5000/property/${property._id}`, {
+    fetch(`https://homenest-server-nine.vercel.app/property/${property._id}`, {
       method: "PUT",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(updatedData),

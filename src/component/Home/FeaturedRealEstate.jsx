@@ -8,7 +8,7 @@ export default function FeaturedRealEstate() {
   
 
   useEffect(() => {
-    fetch("http://localhost:5000/featured-properties")
+    fetch("https://homenest-server-nine.vercel.app/featured-properties")
       .then((res) => res.json())
       .then((data) => {
         setProperties(data);
@@ -29,7 +29,7 @@ export default function FeaturedRealEstate() {
       <h2 className="text-4xl font-bold text-center text-primary mb-3">
         Featured Real Estate
       </h2>
-      <p className="text-center text-gray-400 mb-12">
+<p className="text-center text-gray-400 mb-12">
         Explore the latest & most popular properties
       </p>
 

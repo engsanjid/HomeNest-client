@@ -16,7 +16,7 @@ export default function PropertyDetails() {
 
   useEffect(() => {
     if (!property?._id) return;
-    fetch(`http://localhost:5000/reviews/${property._id}`)
+    fetch(`https://homenest-server-nine.vercel.app/reviews/${property._id}`)
       .then((res) => res.json())
       .then((data) => {
         setReviews(data);
@@ -53,7 +53,7 @@ export default function PropertyDetails() {
 
     try {
       const token = await user.getIdToken(); 
-      const res = await fetch("http://localhost:5000/reviews", {
+      const res = await fetch("https://homenest-server-nine.vercel.app/reviews", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
