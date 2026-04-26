@@ -8,7 +8,7 @@ export default function FeaturedRealEstate() {
   
 
   useEffect(() => {
-    fetch("https://homenest-server-nine.vercel.app/featured-properties")
+    fetch("VITE_API_URL/featured-properties")
       .then((res) => res.json())
       .then((data) => {
         setProperties(data);

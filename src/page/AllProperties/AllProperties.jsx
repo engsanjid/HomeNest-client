@@ -23,7 +23,7 @@ export default function AllProperties() {
  
   if (debouncedSearch === "") {
     setLoading(true);
-    fetch(`https://homenest-server-nine.vercel.app/all-properties?sort=${sortOption}`)
+    fetch(`VITE_API_URL/all-properties?sort=${sortOption}`)
       .then(res => res.json())
       .then(data => {
         setProperties(data);
@@ -36,7 +36,7 @@ export default function AllProperties() {
   setLoading(false);
 
   fetch(
-    `https://homenest-server-nine.vercel.app/all-properties?search=${debouncedSearch}&sort=${sortOption}`
+    `VITE_API_URL/all-properties?search=${debouncedSearch}&sort=${sortOption}`
   )
     .then((res) => res.json())
     .then((data) => {

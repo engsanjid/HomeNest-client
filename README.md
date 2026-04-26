@@ -13,7 +13,7 @@ https://github.com/engsanjid/homeNest-server-side
 
 ## Live Server API
 
-https://homenest-server-nine.vercel.app/
+VITE_API_URL/
 
 ## About HomeNest
 
@@ -96,7 +96,7 @@ npm install
 
 3️⃣ Create .env file
 VITE_FIREBASE_API_KEY=xxxx
-VITE_API_URL=https://homenest-server-nine.vercel.app/properties
+VITE_API_URL=VITE_API_URL/properties
 
 4️⃣ Start the development server
 npm run dev
