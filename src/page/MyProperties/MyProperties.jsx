@@ -13,7 +13,7 @@ export default function MyProperties() {
     const fetchData = async () => {
       try {
         const token = await user.getIdToken();
-        const res = await fetch(`https://homenest-server-nine.vercel.app/my-properties/${user.email}`, {
+        const res = await fetch(`https://homenest-server-nine.vercel.app/api/properties/user/${user.email}`, {
           headers: {
             Authorization: `Bearer ${token}`, 
           },
@@ -47,7 +47,7 @@ export default function MyProperties() {
     if (result.isConfirmed) {
       try {
         const token = await user.getIdToken(); 
-        const res = await fetch(`https://homenest-server-nine.vercel.app/property/${id}`, {
+        const res = await fetch(`https://homenest-server-nine.vercel.app/api/properties/${id}`, {
           method: "DELETE",
           headers: {
             Authorization: `Bearer ${token}`, 
@@ -97,7 +97,7 @@ export default function MyProperties() {
                   alt={p.propertyName}
                   className="h-56 w-full object-cover transition-transform duration-500 hover:scale-105"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent"></div>
+                <div className="absolute inset-0 bg-linear-to-t from-black/40 to-transparent"></div>
               </figure>
 
               <div className="p-5 text-gray-200">
@@ -129,7 +129,7 @@ export default function MyProperties() {
                   </button>
                   <button
                     onClick={() =>
-                      (window.location.href = `/details/${p._id}`)
+                      (window.location.href = `/properties/${p._id}`)
                     }
                     className="btn btn-outline btn-sm border-primary text-primary hover:bg-primary hover:text-white transition-all duration-200"
                   >

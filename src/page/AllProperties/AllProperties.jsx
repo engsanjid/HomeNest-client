@@ -23,7 +23,7 @@ export default function AllProperties() {
  
   if (debouncedSearch === "") {
     setLoading(true);
-    fetch(`https://homenest-server-nine.vercel.app/all-properties?sort=${sortOption}`)
+    fetch(`https://homenest-server-nine.vercel.app/api/properties?sort=${sortOption}`)
       .then(res => res.json())
       .then(data => {
         setProperties(data);
@@ -36,7 +36,7 @@ export default function AllProperties() {
   setLoading(false);
 
   fetch(
-    `https://homenest-server-nine.vercel.app/all-properties?search=${debouncedSearch}&sort=${sortOption}`
+    `https://homenest-server-nine.vercel.app/api/properties?search=${debouncedSearch}&sort=${sortOption}`
   )
     .then((res) => res.json())
     .then((data) => {
@@ -105,7 +105,7 @@ export default function AllProperties() {
                   alt={p.propertyName}
                   className="h-56 w-full object-cover transition-transform duration-500 hover:scale-105"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent"></div>
+                <div className="absolute inset-0 bg-linear-to-t from-black/40 to-transparent"></div>
               </figure>
 
               <div className="p-5 text-gray-200">
@@ -123,7 +123,7 @@ export default function AllProperties() {
 
                 <div className="flex justify-end mt-4">
                   <Link
-                    to={`/details/${p._id}`}
+                    to={`/properties/${p._id}`}
                     className="btn btn-outline btn-sm border-primary text-primary 
                                hover:bg-primary hover:text-white transition-all duration-300"
                   >

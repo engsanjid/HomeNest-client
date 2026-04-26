@@ -19,7 +19,7 @@ export default function UpdateProperty() {
       image: form.image.value,
     };
 
-    fetch(`https://homenest-server-nine.vercel.app/property/${property._id}`, {
+    fetch(`https://homenest-server-nine.vercel.app/api/properties/${property._id}`, {
       method: "PUT",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(updatedData),
@@ -33,7 +33,7 @@ export default function UpdateProperty() {
             icon: "success",
             confirmButtonColor: "#3085d6",
           });
-          navigate(`/details/${property._id}`);
+          navigate(`/properties/${property._id}`);
         } else {
           Swal.fire("Error!", "Update failed.", "error");
         }

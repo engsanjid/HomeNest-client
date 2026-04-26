@@ -20,7 +20,7 @@ const Footer = () => {
           <h4 className="text-lg font-semibold mb-3 text-primary">Quick Links</h4>
           <ul className="space-y-2 text-sm">
             <li><Link to="/" className="hover:text-primary transition-colors">Home</Link></li>
-            <li><Link to="/all-properties" className="hover:text-primary transition-colors">All Properties</Link></li>
+            <li><Link to="/properties" className="hover:text-primary transition-colors">All Properties</Link></li>
             <li><Link to="/add-property" className="hover:text-primary transition-colors">Add Property</Link></li>
             <li><Link to="/my-properties" className="hover:text-primary transition-colors">My Properties</Link></li>
             <li><Link to="/my-ratings" className="hover:text-primary transition-colors">My Ratings</Link></li>

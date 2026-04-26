@@ -24,7 +24,7 @@ export default function AddProperty() {
 
   try {
     const token = await user.getIdToken(); 
-    const res = await fetch("https://homenest-server-nine.vercel.app/all-properties", {
+    const res = await fetch("https://homenest-server-nine.vercel.app/api/properties", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
