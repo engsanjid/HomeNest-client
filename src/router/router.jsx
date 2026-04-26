@@ -22,11 +22,11 @@ const router = createBrowserRouter([
       { path: "/", element: <Home /> },
 
      
-      { path: "/properties", loader: () => fetch("https://homenest-server-nine.vercel.app/api/properties"), element: <AllProperties /> },
+      { path: "/all-properties", loader: () => fetch("https://homenest-server-nine.vercel.app/all-properties"), element: <AllProperties /> },
 
       {
-        path: "/properties/:id",
-        loader: ({ params }) => fetch(`https://homenest-server-nine.vercel.app/api/properties/${params.id}`),
+        path: "/details/:id",
+        loader: ({ params }) => fetch(`https://homenest-server-nine.vercel.app/details/${params.id}`),
         element: (
           <PrivateRoute>
             <PropertyDetails />
@@ -64,7 +64,7 @@ const router = createBrowserRouter([
 
       {
         path: "/update-property/:id",
-        loader: ({ params }) => fetch(`https://homenest-server-nine.vercel.app/api/properties/${params.id}`),
+        loader: ({ params }) => fetch(`https://homenest-server-nine.vercel.app/property/${params.id}`),
         element: (
           <PrivateRoute>
             <UpdateProperty />

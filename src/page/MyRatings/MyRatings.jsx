@@ -13,7 +13,7 @@ export default function MyRatings() {
   const fetchReviews = async () => {
     try {
       const token = await user.getIdToken(); 
-      const res = await fetch(`https://homenest-server-nine.vercel.app/api/reviews/user/${user.email}`, {
+      const res = await fetch(`https://homenest-server-nine.vercel.app/my-reviews/${user.email}`, {
         headers: {
           Authorization: `Bearer ${token}`, 
         },
@@ -66,7 +66,7 @@ export default function MyRatings() {
                   alt={r.propertyName}
                   className="h-56 w-full object-cover transition-transform duration-500 hover:scale-105"
                 />
-                <div className="absolute inset-0 bg-linear-to-t from-black/40 to-transparent"></div>
+                <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent"></div>
               </figure>
 
               <div className="p-5 text-gray-200">
@@ -102,7 +102,7 @@ export default function MyRatings() {
                 <div className="flex justify-end mt-4">
                   <button
                     onClick={() =>
-                      (window.location.href = `/properties/${r.propertyId}`)
+                      (window.location.href = `/details/${r.propertyId}`)
                     }
                     className="btn btn-outline btn-sm border-primary text-primary hover:bg-primary hover:text-white transition-all duration-200"
                   >

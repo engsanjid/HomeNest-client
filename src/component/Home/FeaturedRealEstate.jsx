@@ -8,7 +8,7 @@ export default function FeaturedRealEstate() {
   
 
   useEffect(() => {
-    fetch("https://homenest-server-nine.vercel.app/api/properties/featured")
+    fetch("https://homenest-server-nine.vercel.app/featured-properties")
       .then((res) => res.json())
       .then((data) => {
         setProperties(data);
@@ -66,7 +66,7 @@ export default function FeaturedRealEstate() {
 
               <div className="mt-4 text-right">
                 <Link
-                  to={`/properties/${p._id}`}
+                  to={`/details/${p._id}`}
                   className="btn btn-outline btn-sm border-primary text-primary hover:bg-primary hover:text-white"
                 >
                   View Details

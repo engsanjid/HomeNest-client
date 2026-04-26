@@ -50,7 +50,7 @@ export default function Navbar() {
         
         <nav className="hidden lg:flex items-center gap-6">
           <NavLink to="/" className={navStyle}>Home</NavLink>
-          <NavLink to="/properties" className={navStyle}>All Properties</NavLink>
+          <NavLink to="/all-properties" className={navStyle}>All Properties</NavLink>
 
           <NavLink
             to="/add-property"
@@ -123,7 +123,7 @@ export default function Navbar() {
 
             <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-56">
               <li><Link to="/">Home</Link></li>
-              <li><Link to="/properties">All Properties</Link></li>
+              <li><Link to="/all-properties">All Properties</Link></li>
               <li><Link to={"/add-property"}>Add Properties</Link></li>
               <li><Link to={"/my-properties"}>My Properties</Link></li>
               <li><Link to={"/my-ratings"}>My Ratings</Link></li>
