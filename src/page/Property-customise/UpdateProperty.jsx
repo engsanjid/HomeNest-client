@@ -19,7 +19,7 @@ export default function UpdateProperty() {
       image: form.image.value,
     };
 
-    fetch(`import.meta.env.VITE_API_URL/property/${property._id}`, {
+    fetch(`VITE_API_URL/property/${property._id}`, {
       method: "PUT",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(updatedData),

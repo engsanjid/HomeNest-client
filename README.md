@@ -13,7 +13,7 @@ https://github.com/engsanjid/homeNest-server-side
 
 ## Live Server API
 
-import.meta.env.VITE_API_URL/
+VITE_API_URL/
 
 ## About HomeNest
 
@@ -96,7 +96,7 @@ npm install
 
 3️⃣ Create .env file
 VITE_FIREBASE_API_KEY=xxxx
-import.meta.env.VITE_API_URL=import.meta.env.VITE_API_URL/properties
+VITE_API_URL=VITE_API_URL/properties
 
 4️⃣ Start the development server
 npm run dev
