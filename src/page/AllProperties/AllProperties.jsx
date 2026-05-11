@@ -19,24 +19,28 @@ export default function AllProperties() {
   }, [searchTerm]);
 
 
-  useEffect(() => {
- 
+
+
+useEffect(() => {
+
   if (debouncedSearch === "") {
     setLoading(true);
-    fetch(`VITE_API_URL/all-properties?sort=${sortOption}`)
+
+    fetch(`${import.meta.env.VITE_API_URL}/all-properties?sort=${sortOption}`)
       .then(res => res.json())
       .then(data => {
         setProperties(data);
         setLoading(false);
       })
       .catch(() => setLoading(false));
+
     return;
   }
 
-  setLoading(false);
+  setLoading(true);
 
   fetch(
-    `VITE_API_URL/all-properties?search=${debouncedSearch}&sort=${sortOption}`
+    `${import.meta.env.VITE_API_URL}/all-properties?search=${debouncedSearch}&sort=${sortOption}`
   )
     .then((res) => res.json())
     .then((data) => {
@@ -44,6 +48,7 @@ export default function AllProperties() {
       setLoading(false);
     })
     .catch(() => setLoading(false));
+
 }, [debouncedSearch, sortOption]);
 
   if (loading)

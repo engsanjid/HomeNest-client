@@ -13,7 +13,7 @@ export default function MyProperties() {
     const fetchData = async () => {
       try {
         const token = await user.getIdToken();
-        const res = await fetch(`VITE_API_URL/my-properties/${user.email}`, {
+        const res = await fetch(`${import.meta.env.VITE_API_URL}/my-properties/${user.email}`, {
           headers: {
             Authorization: `Bearer ${token}`, 
           },
@@ -47,7 +47,7 @@ export default function MyProperties() {
     if (result.isConfirmed) {
       try {
         const token = await user.getIdToken(); 
-        const res = await fetch(`VITE_API_URL/property/${id}`, {
+        const res = await fetch(`${import.meta.env.VITE_API_URL}/property/${id}`, {
           method: "DELETE",
           headers: {
             Authorization: `Bearer ${token}`, 

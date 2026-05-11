@@ -8,7 +8,7 @@ export default function FeaturedRealEstate() {
   
 
   useEffect(() => {
-    fetch("VITE_API_URL/featured-properties")
+    fetch(`${import.meta.env.VITE_API_URL}/featured-properties`)
       .then((res) => res.json())
       .then((data) => {
         setProperties(data);
