@@ -22,11 +22,11 @@ const router = createBrowserRouter([
       { path: "/", element: <Home /> },
 
      
-      { path: "/all-properties", loader: () => fetch("VITE_API_URL/all-properties"), element: <AllProperties /> },
+      { path: "/all-properties", loader: () => fetch("import.meta.env.VITE_API_URL/all-properties"), element: <AllProperties /> },
 
       {
         path: "/details/:id",
-        loader: ({ params }) => fetch(`VITE_API_URL/details/${params.id}`),
+        loader: ({ params }) => fetch(`import.meta.env.VITE_API_URL/details/${params.id}`),
         element: (
           <PrivateRoute>
             <PropertyDetails />
@@ -64,7 +64,7 @@ const router = createBrowserRouter([
 
       {
         path: "/update-property/:id",
-        loader: ({ params }) => fetch(`VITE_API_URL/property/${params.id}`),
+        loader: ({ params }) => fetch(`import.meta.env.VITE_API_URL/property/${params.id}`),
         element: (
           <PrivateRoute>
             <UpdateProperty />

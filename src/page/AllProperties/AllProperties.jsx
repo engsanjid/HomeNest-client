@@ -23,7 +23,7 @@ export default function AllProperties() {
  
   if (debouncedSearch === "") {
     setLoading(true);
-    fetch(`VITE_API_URL/all-properties?sort=${sortOption}`)
+    fetch(`import.meta.env.VITE_API_URL/all-properties?sort=${sortOption}`)
       .then(res => res.json())
       .then(data => {
         setProperties(data);
@@ -36,7 +36,7 @@ export default function AllProperties() {
   setLoading(false);
 
   fetch(
-    `VITE_API_URL/all-properties?search=${debouncedSearch}&sort=${sortOption}`
+    `import.meta.env.VITE_API_URL/all-properties?search=${debouncedSearch}&sort=${sortOption}`
   )
     .then((res) => res.json())
     .then((data) => {

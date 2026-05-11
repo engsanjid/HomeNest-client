@@ -13,7 +13,7 @@ export default function MyRatings() {
   const fetchReviews = async () => {
     try {
       const token = await user.getIdToken(); 
-      const res = await fetch(`VITE_API_URL/my-reviews/${user.email}`, {
+      const res = await fetch(`import.meta.env.VITE_API_URL/my-reviews/${user.email}`, {
         headers: {
           Authorization: `Bearer ${token}`, 
         },

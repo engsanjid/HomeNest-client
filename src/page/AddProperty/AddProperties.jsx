@@ -24,7 +24,7 @@ export default function AddProperty() {
 
   try {
     const token = await user.getIdToken(); 
-    const res = await fetch("VITE_API_URL/all-properties", {
+    const res = await fetch("import.meta.env.VITE_API_URL/all-properties", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
